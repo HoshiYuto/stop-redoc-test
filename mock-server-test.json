@@ -1,0 +1,129 @@
+{
+  "openapi": "3.1.0",
+  "x-stoplight": {
+    "id": "1f2e30evwf12g"
+  },
+  "info": {
+    "title": "mock-server-test",
+    "version": "1.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:3000"
+    }
+  ],
+  "paths": {
+    "/product/{productId}": {
+      "parameters": [
+        {
+          "schema": {
+            "type": "string"
+          },
+          "name": "productId",
+          "in": "path",
+          "required": true
+        }
+      ],
+      "get": {
+        "summary": "get product",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "商品を取得しました。",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "get-product-product",
+        "parameters": []
+      }
+    },
+    "/product": {
+      "post": {
+        "summary": "new product create",
+        "tags": [],
+        "responses": {
+          "200": {
+            "description": "商品を登録しました。",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        },
+        "operationId": "post-product",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  }
+                },
+                "x-examples": {
+                  "example-1": {
+                    "name": "お茶",
+                    "price": 100
+                  }
+                }
+              },
+              "examples": {}
+            },
+            "application/xml": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "name": {
+                    "type": "string"
+                  },
+                  "price": {
+                    "type": "integer"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Product": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "integer"
+          }
+        },
+        "x-examples": {
+          "example-1": {
+            "id": 1,
+            "name": "おにぎり",
+            "price": 150
+          }
+        },
+        "description": ""
+      }
+    }
+  }
+}

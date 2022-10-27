@@ -41,6 +41,22 @@
         },
         "operationId": "get-product-product",
         "parameters": []
+      },
+      "patch": {
+        "summary": "",
+        "operationId": "patch-product-productId",
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Product"
+                }
+              }
+            }
+          }
+        }
       }
     },
     "/product": {

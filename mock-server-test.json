@@ -47,7 +47,7 @@
         "operationId": "patch-product-productId",
         "responses": {
           "200": {
-            "description": "OK",
+            "description": "商品を更新しました。",
             "content": {
               "application/json": {
                 "schema": {
